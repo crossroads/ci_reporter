@@ -33,9 +33,9 @@ module CI
         !failure?
       end
 
-      def name() @example.execution_result[:exception_encountered].class.name end
-      def message() @example.execution_result[:exception_encountered].message end
-      def location() @example.execution_result[:exception_encountered].backtrace.join("\n") end
+      def name() @example.metadata[:execution_result][:exception].class.name end
+      def message() @example.metadata[:execution_result][:exception].message end
+      def location() @example.metadata[:execution_result][:exception].backtrace.join("\n") end
     end
 
     # Custom +RSpec+ formatter used to hook into the spec runs and capture results.
